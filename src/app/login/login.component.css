@@ -1,0 +1,13 @@
+.header-image {
+  background-image: url("https://cdn1.iconfinder.com/data/icons/security-116/128/account_lock_lock_account_data_protection_monitoring_security_optimization-29-512.png");
+  background-size: cover;
+}
+.content {
+  max-width: 400px;
+  margin: auto;
+  margin-top: 50px;
+}
+button,
+mat-form-field {
+  width: 100%;
+}
