@@ -1,0 +1,173 @@
+<mat-tab-group>
+  <mat-tab label="Adauga sala fitness">
+    <br /><br />
+    <div class="form-content">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Detalii Sala Fitness:</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-progress-bar mode="indeterminate" *ngIf="showProgressBar">
+          </mat-progress-bar>
+          <div class="example-container">
+            <br />
+            <mat-form-field class="mat-form-field">
+              <mat-label>Introduceti nume:</mat-label>
+              <input
+                matInput
+                type="text"
+                name="name"
+                id="name"
+                [(ngModel)]="gym.name"
+              />
+            </mat-form-field>
+            <br />
+            <mat-form-field class="mat-form-field">
+              <mat-label>Introduceti adresa:</mat-label>
+              <input
+                matInput
+                type="text"
+                id="address"
+                [(ngModel)]="gym.address"
+                name="address"
+              />
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field">
+              <mat-label>Introduceti orasul:</mat-label>
+              <input
+                matInput
+                type="text"
+                id="city"
+                [(ngModel)]="gym.city"
+                name="city"
+              /> </mat-form-field
+            ><br />
+
+            <mat-form-field class="mat-form-field">
+              <mat-label>Introduceti codul postal:</mat-label>
+              <input
+                matInput
+                type="number"
+                id="area"
+                [(ngModel)]="gym.area"
+                name="area"
+              /> </mat-form-field
+            ><br />
+
+            <mat-form-field class="mat-form-field">
+              <mat-label>Introduceti logo-ul (copy/paste url):</mat-label>
+              <input
+                matInput
+                type="text"
+                id="logo"
+                [(ngModel)]="gym.logo"
+                name="logo"
+              />
+            </mat-form-field>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            mat-stroked-button
+            color="primary"
+            (click)="addGym()"
+            class="button"
+          >
+            Adauga
+          </button> </mat-card-actions
+        ><br />
+      </mat-card>
+    </div>
+  </mat-tab>
+  <mat-tab label="Adauga client">
+    <br /><br />
+    <div class="form-content">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Detalii Client</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-progress-bar
+            mode="indeterminate"
+            *ngIf="showProgressBar"
+          ></mat-progress-bar>
+          <div class="example-container">
+            <br />
+            <mat-form-field class="mat-form-field">
+              <mat-label>Introduceti prenume:</mat-label>
+              <input
+                matInput
+                type="text"
+                [(ngModel)]="customer.firstName"
+                name="firstName"
+              /> </mat-form-field
+            ><br />
+
+            <mat-form-field class="mat-form-field">
+              <mat-label>Introduceti nume:</mat-label>
+              <input
+                matInput
+                type="text"
+                [(ngModel)]="customer.lastName"
+                name="lastName"
+              />
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field">
+              <mat-label>Introduceti varsta:</mat-label>
+              <input
+                matInput
+                type="number"
+                [(ngModel)]="customer.age"
+                name="age"
+              /> </mat-form-field
+            ><br />
+
+            <mat-form-field class="mat-form-field">
+              <mat-label>Introduceti imagine (copy/paste url):</mat-label>
+              <input
+                matInput
+                type="text"
+                [(ngModel)]="customer.avatar"
+                name="avatar"
+              /> </mat-form-field
+            ><br />
+
+            <mat-radio-group
+              aria-label="Selectati o optiune"
+              [(ngModel)]="gender"
+              name="gender"
+              (ngModelChange)="setGender()"
+            >
+              <mat-radio-button value="female">Femeie</mat-radio-button>
+              <mat-radio-button value="male" style="margin-left: 10px"
+                >Barbat</mat-radio-button
+              >
+            </mat-radio-group>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            mat-stroked-button
+            color="primary"
+            (click)="addCustomer()"
+            class="button"
+          >
+            Adauga
+          </button> </mat-card-actions
+        ><br />
+      </mat-card>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
+<div class="footer">
+  <p>Bine ai venit: {{ username }}</p>
+  <button mat-fab color="primary" (click)="home()">
+    <mat-icon>home</mat-icon>
+  </button>
+  <button mat-fab color="accent" (click)="logout(user.id)">
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>

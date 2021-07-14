@@ -1,0 +1,32 @@
+.mat-tab-label {
+  min-width: 25px !important;
+  padding: 5px;
+  background-color: transparent;
+  color: rgb(53, 119, 163);
+  font-weight: 500;
+}
+
+/* Styles for the active tab label */
+.mat-tab-label.mat-tab-label-active {
+  min-width: 25px !important;
+  padding: 5px;
+  background-color: transparent;
+  color: rgb(12, 83, 165);
+  font-weight: 700;
+}
+
+/* Styles for the ink bar */
+.mat-ink-bar {
+  background-color: green;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  padding-bottom: 10px;
+  bottom: 0;
+  width: 100%;
+  background-color: #ddd;
+  color: black;
+  text-align: center;
+}
