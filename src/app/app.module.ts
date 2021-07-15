@@ -10,9 +10,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, AdminDashboardComponent],
+  declarations: [AppComponent, LoginComponent, AdminDashboardComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

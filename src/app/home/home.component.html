@@ -1,0 +1,35 @@
+<div class="topnav">
+  <a class="active" href="#home">Acasa</a>
+  <a href="#about" (click)="alertaDespre()">Despre Noi</a>
+  <a href="#contact" (click)="alertaContact()">Contact</a>
+  <div class="login-container">
+    <button type="submit" (click)="logout(user.id)">
+      Logout: {{ user.username }}
+    </button>
+  </div>
+</div>
+<div id="maincontainer">
+  <div id="leftcolumn">
+    <mat-card style="height: 918px; background-color: #d1cece">
+      <mat-card-header>
+        <mat-card-title>Sali Fitness</mat-card-title>
+        <mat-card-subtitle>Toate salile de fitness</mat-card-subtitle>
+      </mat-card-header>
+      <hr />
+
+      <mat-selection-list #shoes [multiple]="false">
+        <mat-list-option
+          *ngFor="let gym of gyms"
+          [value]="gym"
+          [routerLink]="['/home/' + username + '/find-all-gyms/', gym.id]"
+        >
+          {{ gym.name }}
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-card>
+  </div>
+
+  <div id="contentwrapper">
+    <router-outlet></router-outlet>
+  </div>
+</div>
