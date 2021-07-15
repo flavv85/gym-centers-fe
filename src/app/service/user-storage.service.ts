@@ -46,4 +46,38 @@ export class UserStorageService {
   public signOut() {
     window.sessionStorage.clear();
   }
+
+  // addUser(user: any): Observable<any> {
+  //   return this.httpClient.post<any>(`${this.url}/addUser`, user);
+  // }
+
+  // editUser(user: any, id: number): Observable<any> {
+  //   return this.httpClient.put<any>(`${this.url}/editUser/${id}`, user);
+  // }
+
+  // findUserById(id: number): Observable<any> {
+  //   return this.httpClient.get<any>(`${this.url}/findUserById/${id}`);
+  // }
+
+  // findUserByUsername(username: string): Observable<any> {
+  //   return this.httpClient.get<any>(
+  //     `${this.url}/findUserByUsername/${username}`
+  //   );
+  // }
+
+  // deleteUser(id: number): Observable<any> {
+  //   return this.httpClient.get<any>(`${this.url}/deleteUser/${id}`);
+  // }
+
+  // public saveUsername(username: string) {
+  //   window.sessionStorage.removeItem(USERNAME_KEY);
+  //   window.sessionStorage.setItem(USERNAME_KEY, username);
+  // }
+  // public getUsername(): string {
+  //   return sessionStorage.getItem(USERNAME_KEY);
+  // }
+
+  // public signOut() {
+  //   window.sessionStorage.clear();
+  // }
 }

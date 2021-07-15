@@ -45,6 +45,9 @@ export class LoginComponent implements OnInit {
                 .subscribe((addUser) => {
                   this.user = addUser;
                   this.userStorageService.saveUsername(this.user.username);
+                  window.alert(
+                    `Utilizatorul: ${this.user.username} nu exista si a fost creat!`
+                  );
                   this.router.navigate(['/home/', this.user.username]);
                 });
             }

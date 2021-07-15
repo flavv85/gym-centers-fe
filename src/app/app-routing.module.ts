@@ -7,9 +7,30 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  // { path: 'admin-dashboard/:username', component: AdminDashboardComponent },
-  { path: 'admin-dashboard', component: AdminDashboardComponent },
-  { path: 'home', component: HomeComponent },
+  {
+    path: 'home/:username',
+    component: HomeComponent,
+    // children: [
+    //   {
+    //     path: '',
+    //     component: WelcomeComponent,
+    //   },
+    //   {
+    //     path: 'find-all-gyms/:id',
+    //     component: FindAllGymsComponent,
+    //     children: [
+    //       {
+    //         path: 'find-all-worktime/:id',
+    //         component: FindAllWorktimeComponent,
+    //       },
+    //     ],
+    //   },
+    // ],
+  },
+  {
+    path: 'admin-dashboard/:username',
+    component: AdminDashboardComponent,
+  },
 ];
 
 @NgModule({

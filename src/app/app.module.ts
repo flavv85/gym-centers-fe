@@ -11,9 +11,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { HomeComponent } from './home/home.component';
+import { FindAllGymsComponent } from './gyms/find-all-gyms/find-all-gyms.component';
+import { EditGymComponent } from './gyms/edit-gym/edit-gym.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, AdminDashboardComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    AdminDashboardComponent,
+    HomeComponent,
+    FindAllGymsComponent,
+    EditGymComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
