@@ -1,0 +1,9 @@
+<h4>Alegeti in program de fitness</h4>
+<mat-form-field appearance="fill">
+  <mat-label>Program fitness</mat-label>
+  <mat-select (selectionChange)="selectedValue($event)">
+    <mat-option *ngFor="let workout of workouts" [value]="workout.id">
+      {{ workout.name }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

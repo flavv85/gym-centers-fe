@@ -11,11 +11,8 @@ export class CustomerService {
 
   constructor(private httpClient: HttpClient) {}
 
-  addCustomer(customer: Customer, id: number): Observable<Customer> {
-    return this.httpClient.post<Customer>(
-      `${this.url}/addCustomer/${id}`,
-      customer
-    );
+  addCustomer(customer: Customer): Observable<Customer> {
+    return this.httpClient.post<Customer>(`${this.url}/addCustomer`, customer);
   }
 
   editCustomer(Customer: Customer, id: number): Observable<Customer> {

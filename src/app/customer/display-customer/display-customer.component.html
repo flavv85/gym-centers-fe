@@ -1,0 +1,78 @@
+<mat-accordion>
+  <mat-expansion-panel
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+    *ngFor="let c of customer"
+  >
+    <mat-expansion-panel-header (click)="showSports(c.id)">
+      <mat-panel-title> Client </mat-panel-title>
+      <mat-panel-description>
+        {{ c.firstName }} {{ c.lastName }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <table id="table">
+      <tr>
+        <th>Logo</th>
+        <th>Nume complet</th>
+        <th>Varsta</th>
+        <th>Sex</th>
+        <th *ngIf="user.admin">Sterge / efectueaza modificari client</th>
+      </tr>
+      <tr>
+        <td>
+          <img
+            src="{{ c.avatar }}"
+            alt="Avatar"
+            style="width: 50px; height: 44px"
+          />
+        </td>
+        <td>{{ c.lastName }} {{ c.firstName }}</td>
+        <td>{{ c.age }}</td>
+        <td>{{ c.sex }}</td>
+        <td *ngIf="user.admin">
+          <mat-chip-list aria-label="Fish selection">
+            <mat-chip style="cursor: pointer" style="color: #c53c13"
+              ><span class="material-icons" (click)="deleteCustomer(c.id)"
+                >close</span
+              ></mat-chip
+            >
+            <mat-chip
+              style="cursor: pointer"
+              color="accent"
+              selected
+              (click)="addSportForCustomer(c.id, idGym)"
+              >Adauga sport</mat-chip
+            >
+            <mat-chip
+              style="cursor: pointer"
+              color="primary"
+              selected
+              (click)="addPayment(c.id)"
+              >Adauga plata</mat-chip
+            >
+          </mat-chip-list>
+        </td>
+      </tr>
+    </table>
+    <br />
+
+    <div id="maincontainer">
+      <div id="sportColumn">
+        <p style="font-weight: bold">Inscris la:</p>
+        <p *ngFor="let sport of sports">- {{ sport.name }}</p>
+      </div>
+      <div id="paymentColumn">
+        <p style="font-weight: bold">Plati efectuate:</p>
+        <p *ngFor="let p of payments">
+          <span>Cost: {{ p.cost }}$ Lei</span><br />
+          <span>Durata: {{ p.duration }} luna</span><br />
+          <span>{{ p.date | date }}</span>
+          <button mat-icon-button color="warn" (click)="deletePayment(p.id)">
+            <mat-icon>close</mat-icon>Sterge plata
+          </button>
+        </p>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

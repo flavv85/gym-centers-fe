@@ -1,0 +1,193 @@
+<mat-card style="margin: 20px">
+  <mat-card-header>
+    <mat-card-title>Informatii orar programe de exercitii </mat-card-title>
+    <mat-card-subtitle>Toate perioadele</mat-card-subtitle>
+  </mat-card-header>
+  <hr />
+  <mat-card-content>
+    <table id="table">
+      <tr>
+        <th>Zi</th>
+        <th>Data</th>
+        <th>Inceput</th>
+        <th>Sfarsit</th>
+        <th *ngIf="user.admin">Detalii</th>
+      </tr>
+      <tr *ngFor="let element of worktimes">
+        <td>{{ element.day }}</td>
+        <td>{{ element.timetable | date }}</td>
+        <td>{{ element.start }}</td>
+        <td>{{ element.end }}</td>
+        <td *ngIf="user.admin">
+          <mat-chip-list aria-label="Fish selection">
+            <mat-chip style="cursor: pointer"
+              ><span
+                class="material-icons"
+                (click)="openEditWorktime(element.id, id)"
+                >edit</span
+              ></mat-chip
+            >
+            <mat-chip style="cursor: pointer" style="color: #c53c13"
+              ><span class="material-icons" (click)="deleteWorktime(element.id)"
+                >close</span
+              ></mat-chip
+            >
+            <mat-chip
+              style="cursor: pointer"
+              color="accent"
+              selected
+              (click)="openAddCustomer(element.id)"
+              >Adauga client</mat-chip
+            >
+            <mat-chip
+              style="cursor: pointer"
+              (click)="showCustomer(element.id, idGym)"
+            >
+              Vezi clienti inscrisi
+            </mat-chip>
+          </mat-chip-list>
+        </td>
+      </tr>
+    </table>
+  </mat-card-content>
+  <mat-card-actions>
+    <span *ngIf="user.admin">
+      <button mat-raised-button color="primary" (click)="openAddWorktime(id)">
+        Adauga program execitii
+      </button>
+    </span>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card style="margin: 20px">
+  <mat-card-header>
+    <mat-card-title>Informatii sport</mat-card-title>
+    <mat-card-subtitle>Toate sporturile</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list *ngFor="let sport of sports">
+      <mat-divider></mat-divider><br />
+      <mat-list-item style="cursor: pointer" (click)="displaySport(sport.id)">
+        <img
+          src="{{ sport.photo }}"
+          alt="Poza {{ sport.name }}"
+          style="width: 60px; margin-right: 10px"
+        />
+        {{ sport.name }}
+      </mat-list-item>
+      <mat-list-item style="color: #77797b !important">
+        {{ sport.description }}
+      </mat-list-item>
+
+      <div style="display: flex">
+        <div>
+          <h2>Tipuri antrenamente</h2>
+          <p *ngFor="let workout of sport.workouts">- {{ workout.name }}</p>
+        </div>
+
+        <div style="margin-left: 40px">
+          <h2>Instructori</h2>
+          <p *ngFor="let instructor of sport.instructors">
+            - {{ instructor.name }}
+          </p>
+        </div>
+      </div>
+
+      <mat-list-item *ngIf="user.admin">
+        <button mat-stroked-button (click)="addWorkoutForSport(sport.id)">
+          Adauga program fitness pentru sport
+        </button>
+        <button
+          mat-stroked-button
+          color="primary"
+          (click)="addWorkoutForInstructor(sport.id)"
+          style="margin-left: 10px"
+        >
+          Adauga instructor pentru sport
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteSport(sport.id)">
+          <mat-icon>close</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="editSport(sport.id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <span *ngIf="user.admin">
+      <button mat-raised-button color="accent" (click)="addSportForGym(id)">
+        Adauga sport
+      </button>
+    </span>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card style="margin: 20px">
+  <mat-card-header>
+    <mat-card-title
+      >Informatii programe de antrenament si instructori</mat-card-title
+    >
+    <mat-card-subtitle
+      >Toate programele de fitness si toti instructorii</mat-card-subtitle
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <div style="display: flex">
+      <div>
+        <h2>Programe de antrenament</h2>
+        <p *ngFor="let workout of workouts">
+          - {{ workout.name }}
+          <span *ngIf="user.admin">
+            <button
+              mat-icon-button
+              (click)="deleteWorkout(workout.id)"
+              style="color: #c53c13"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+            <button
+              mat-icon-button
+              (click)="editWorkout(workout.id)"
+              style="color: darkgray"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+          </span>
+        </p>
+        <span *ngIf="user.admin">
+          <button mat-raised-button color="primary" (click)="addWorkout(id)">
+            Adauga program fitness
+          </button>
+        </span>
+      </div>
+      <div style="margin-left: 40px">
+        <h2>Instructori</h2>
+        <p *ngFor="let instructor of instructors">
+          - {{ instructor.name }}
+          <span *ngIf="user.admin">
+            <button
+              mat-icon-button
+              (click)="deleteInstructor(instructor.id)"
+              style="color: #c53c13"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+            <button
+              mat-icon-button
+              (click)="editInstructor(instructor.id)"
+              style="color: darkgray"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+          </span>
+        </p>
+        <span *ngIf="user.admin">
+          <button mat-raised-button color="primary" (click)="addInstructor(id)">
+            Adauga instructor
+          </button>
+        </span>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

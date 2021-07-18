@@ -1,0 +1,9 @@
+<h4>Selecteaza client</h4>
+<mat-form-field appearance="fill">
+  <mat-label>Client</mat-label>
+  <mat-select (selectionChange)="selectedValue($event)">
+    <mat-option *ngFor="let customer of customers" [value]="customer.id">
+      {{ customer.firstName }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

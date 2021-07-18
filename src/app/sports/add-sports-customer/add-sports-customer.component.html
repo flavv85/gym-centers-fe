@@ -1,0 +1,9 @@
+<h4>Selectati sportul</h4>
+<mat-form-field appearance="fill">
+  <mat-label>Sport</mat-label>
+  <mat-select (selectionChange)="selectedValue($event)">
+    <mat-option *ngFor="let sport of sports" [value]="sport.id">
+      {{ sport.name }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

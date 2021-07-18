@@ -1,0 +1,60 @@
+<div class="form-content">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ title }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-progress-bar
+        mode="indeterminate"
+        *ngIf="showProgressBar"
+      ></mat-progress-bar>
+      <div class="example-container">
+        <br />
+        <mat-form-field appearance="fill" class="mat-form-field">
+          <mat-label>Introduceti ziua</mat-label>
+          <input
+            matInput
+            type="text"
+            [(ngModel)]="worktime.day"
+            name="day"
+          /> </mat-form-field
+        ><br />
+
+        <mat-form-field appearance="fill" class="mat-form-field">
+          <mat-label>Introduceti perioada</mat-label>
+          <input
+            matInput
+            type="date"
+            [(ngModel)]="worktime.timetable"
+            name="timetable"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="mat-form-field">
+          <mat-label>Introduceti ora inceput</mat-label>
+          <input
+            matInput
+            type="time"
+            [(ngModel)]="worktime.start"
+            name="start"
+          /> </mat-form-field
+        ><br />
+
+        <mat-form-field appearance="fill" class="mat-form-field">
+          <mat-label>Introduceti ora sfarsit</mat-label>
+          <input matInput type="time" [(ngModel)]="worktime.end" name="end" />
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="addWorktime()"
+        class="button"
+      >
+        Salveaza
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

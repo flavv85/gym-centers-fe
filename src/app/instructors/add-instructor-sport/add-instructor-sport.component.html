@@ -1,0 +1,9 @@
+<h4>Selectati un instructor</h4>
+<mat-form-field appearance="fill">
+  <mat-label>Instructori</mat-label>
+  <mat-select (selectionChange)="selectedValue($event)">
+    <mat-option *ngFor="let instructor of instructors" [value]="instructor.id">
+      {{ instructor.name }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

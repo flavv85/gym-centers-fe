@@ -48,7 +48,7 @@ export class FindAllGymsComponent implements OnInit {
   }
 
   deleteGym(id: number) {
-    if (confirm('Are you sure')) {
+    if (confirm('Doriti sa stergeti?')) {
       this.gymService.deleteGym(id).subscribe(() => {
         window.location.replace(`/home/${this.username}`);
       });

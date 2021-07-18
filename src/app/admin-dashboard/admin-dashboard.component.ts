@@ -41,7 +41,7 @@ export class AdminDashboardComponent implements OnInit {
   }
   addCustomer() {
     this.showProgressBar = true;
-    this.customerService.addCustomer(this.customer, 1).subscribe((customer) => {
+    this.customerService.addCustomer(this.customer).subscribe((customer) => {
       this.customer = customer;
       window.location.reload();
     });
