@@ -104,7 +104,7 @@ export class FindAllWorktimesComponent implements OnInit {
     dialogRef.afterClosed().subscribe(() => {});
   }
   deleteWorktime(id: number) {
-    if (confirm('Doriti sa stergeti?')) {
+    if (confirm('Doriti sa stergeti perioada?')) {
       this.worktimeService.deleteWorktime(id).subscribe(() => {
         window.location.reload();
       });
@@ -136,7 +136,7 @@ export class FindAllWorktimesComponent implements OnInit {
   }
 
   deleteSport(id: number) {
-    if (confirm('Doriti sa stergeti?')) {
+    if (confirm(`Doriti sa stergeti sportul ?`)) {
       this.sportService.deleteSport(id).subscribe(() => {
         window.location.reload();
       });
@@ -166,14 +166,14 @@ export class FindAllWorktimesComponent implements OnInit {
     dialogRef.afterClosed().subscribe(() => {});
   }
   deleteWorkout(id: number) {
-    if (confirm('Doriti sa stergeti?')) {
+    if (confirm('Doriti sa stergeti programul de antrenament?')) {
       this.workoutService.deleteWorkout(id).subscribe(() => {
         window.location.reload();
       });
     }
   }
   deleteInstructor(id: number) {
-    if (confirm('Doriti sa stergeti?')) {
+    if (confirm(`Doriti sa stergeti instructorul ?`)) {
       this.instructorService.deleteInstructor(id).subscribe(() => {
         window.location.reload();
       });

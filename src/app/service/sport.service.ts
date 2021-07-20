@@ -29,12 +29,6 @@ export class SportService {
     return this.httpClient.put<Sport>(`${this.url}/editSport/${id}`, sport);
   }
 
-  // deleteSport(id: number, idGym: number): Observable<Sport> {
-  //   return this.httpClient.delete<Sport>(
-  //     `${this.url}/deleteSport/${id}/${idGym}`
-  //   );
-  // }
-
   deleteSport(id: number): Observable<Sport> {
     return this.httpClient.delete<Sport>(`${this.url}/deleteSport/${id}`);
   }

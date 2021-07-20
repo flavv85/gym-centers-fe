@@ -31,9 +31,9 @@ export class AddSportsCustomerComponent implements OnInit {
   }
 
   selectedValue(event: any) {
-    const idSportMan = event.value;
+    const idCustomer = event.value;
     this.sportService
-      .addSportForCustomer(idSportMan, this.data.id)
+      .addSportForCustomer(idCustomer, this.data.id)
       .subscribe(() => {
         window.location.reload();
       });

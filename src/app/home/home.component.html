@@ -3,17 +3,16 @@
   <a href="#about" (click)="alertaDespre()">Despre Noi</a>
   <a href="#contact" (click)="alertaContact()">Contact</a>
   <div class="login-container">
-    <button type="submit" (click)="logout(user.id)">
+    <button color="primary" type="submit" (click)="logout(user.id)">
       Logout: {{ user.username }}
     </button>
   </div>
 </div>
 <div id="maincontainer">
   <div id="leftcolumn">
-    <mat-card style="height: 918px; background-color: #d1cece">
+    <mat-card style="height: full; background-color: #e9e9e9">
       <mat-card-header>
-        <mat-card-title>Sali Fitness</mat-card-title>
-        <mat-card-subtitle>Toate salile de fitness</mat-card-subtitle>
+        <mat-card-title>Sali Fitness Inregistrate</mat-card-title>
       </mat-card-header>
       <hr />
 

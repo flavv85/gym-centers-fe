@@ -24,7 +24,7 @@
           <img
             src="{{ c.avatar }}"
             alt="Avatar"
-            style="width: 50px; height: 44px"
+            style="display: block; margin: auto; width: 50px; height: 44px"
           />
         </td>
         <td>{{ c.lastName }} {{ c.firstName }}</td>
@@ -65,7 +65,7 @@
       <div id="paymentColumn">
         <p style="font-weight: bold">Plati efectuate:</p>
         <p *ngFor="let p of payments">
-          <span>Cost: {{ p.cost }}$ Lei</span><br />
+          <span>Cost: {{ p.cost }} Lei</span><br />
           <span>Durata: {{ p.duration }} luna</span><br />
           <span>{{ p.date | date }}</span>
           <button mat-icon-button color="warn" (click)="deletePayment(p.id)">

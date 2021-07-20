@@ -20,31 +20,36 @@
         <td>{{ element.end }}</td>
         <td *ngIf="user.admin">
           <mat-chip-list aria-label="Fish selection">
-            <mat-chip style="cursor: pointer"
-              ><span
-                class="material-icons"
-                (click)="openEditWorktime(element.id, id)"
-                >edit</span
-              ></mat-chip
-            >
-            <mat-chip style="cursor: pointer" style="color: #c53c13"
-              ><span class="material-icons" (click)="deleteWorktime(element.id)"
-                >close</span
-              ></mat-chip
-            >
             <mat-chip
-              style="cursor: pointer"
-              color="accent"
-              selected
+              style="
+                cursor: pointer;
+                background-color: #2596be;
+                color: aliceblue;
+              "
               (click)="openAddCustomer(element.id)"
               >Adauga client</mat-chip
             >
             <mat-chip
-              style="cursor: pointer"
+              style="cursor: pointer; background-color: #96be25"
               (click)="showCustomer(element.id, idGym)"
             >
               Vezi clienti inscrisi
             </mat-chip>
+
+            <button
+              mat-icon-button
+              color="primary"
+              (click)="openEditWorktime(element.id, id)"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button
+              mat-icon-button
+              color="warn"
+              (click)="deleteWorktime(element.id)"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
           </mat-chip-list>
         </td>
       </tr>
@@ -52,29 +57,44 @@
   </mat-card-content>
   <mat-card-actions>
     <span *ngIf="user.admin">
-      <button mat-raised-button color="primary" (click)="openAddWorktime(id)">
+      <button
+        style="width: 100%"
+        mat-raised-button
+        color="primary"
+        (click)="openAddWorktime(id)"
+      >
         Adauga program execitii
       </button>
     </span>
   </mat-card-actions>
 </mat-card>
 
-<mat-card style="margin: 20px">
+<mat-card style="margin: 10px">
   <mat-card-header>
-    <mat-card-title>Informatii sport</mat-card-title>
+    <mat-card-title>Sporturi disponibile</mat-card-title>
     <mat-card-subtitle>Toate sporturile</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <mat-list *ngFor="let sport of sports">
       <mat-divider></mat-divider><br />
-      <mat-list-item style="cursor: pointer" (click)="displaySport(sport.id)">
-        <img
-          src="{{ sport.photo }}"
-          alt="Poza {{ sport.name }}"
-          style="width: 60px; margin-right: 10px"
-        />
-        {{ sport.name }}
-      </mat-list-item>
+      <div style="display: flex">
+        <mat-list-item style="cursor: pointer" (click)="displaySport(sport.id)">
+          <img
+            src="{{ sport.photo }}"
+            alt="Poza {{ sport.name }}"
+            style="width: 60px; margin-right: 10px"
+          />
+          {{ sport.name }}
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-icon-button color="primary" (click)="editSport(sport.id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteSport(sport.id)">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-list-item>
+      </div>
       <mat-list-item style="color: #77797b !important">
         {{ sport.description }}
       </mat-list-item>
@@ -85,7 +105,7 @@
           <p *ngFor="let workout of sport.workouts">- {{ workout.name }}</p>
         </div>
 
-        <div style="margin-left: 40px">
+        <div style="margin-left: 100px">
           <h2>Instructori</h2>
           <p *ngFor="let instructor of sport.instructors">
             - {{ instructor.name }}
@@ -94,7 +114,11 @@
       </div>
 
       <mat-list-item *ngIf="user.admin">
-        <button mat-stroked-button (click)="addWorkoutForSport(sport.id)">
+        <button
+          mat-stroked-button
+          color="primary"
+          (click)="addWorkoutForSport(sport.id)"
+        >
           Adauga program fitness pentru sport
         </button>
         <button
@@ -105,28 +129,27 @@
         >
           Adauga instructor pentru sport
         </button>
-        <button mat-icon-button color="warn" (click)="deleteSport(sport.id)">
-          <mat-icon>close</mat-icon>
-        </button>
-        <button mat-icon-button color="primary" (click)="editSport(sport.id)">
-          <mat-icon>edit</mat-icon>
-        </button>
       </mat-list-item>
     </mat-list>
   </mat-card-content>
   <mat-card-actions>
     <span *ngIf="user.admin">
-      <button mat-raised-button color="accent" (click)="addSportForGym(id)">
+      <button
+        mat-raised-button
+        color="primary"
+        style="width: 100%"
+        (click)="addSportForGym(id)"
+      >
         Adauga sport
       </button>
     </span>
   </mat-card-actions>
 </mat-card>
 
-<mat-card style="margin: 20px">
+<mat-card style="margin: 10px">
   <mat-card-header>
     <mat-card-title
-      >Informatii programe de antrenament si instructori</mat-card-title
+      >Informatii programe de antrenament si instructori activi</mat-card-title
     >
     <mat-card-subtitle
       >Toate programele de fitness si toti instructorii</mat-card-subtitle
@@ -148,15 +171,15 @@
             </button>
             <button
               mat-icon-button
+              color="primary"
               (click)="editWorkout(workout.id)"
-              style="color: darkgray"
             >
               <mat-icon>edit</mat-icon>
             </button>
           </span>
         </p>
         <span *ngIf="user.admin">
-          <button mat-raised-button color="primary" (click)="addWorkout(id)">
+          <button mat-stroked-button color="primary" (click)="addWorkout(id)">
             Adauga program fitness
           </button>
         </span>
@@ -168,22 +191,26 @@
           <span *ngIf="user.admin">
             <button
               mat-icon-button
+              color="warn"
               (click)="deleteInstructor(instructor.id)"
-              style="color: #c53c13"
             >
               <mat-icon>close</mat-icon>
             </button>
             <button
               mat-icon-button
+              color="primary"
               (click)="editInstructor(instructor.id)"
-              style="color: darkgray"
             >
               <mat-icon>edit</mat-icon>
             </button>
           </span>
         </p>
         <span *ngIf="user.admin">
-          <button mat-raised-button color="primary" (click)="addInstructor(id)">
+          <button
+            mat-stroked-button
+            color="primary"
+            (click)="addInstructor(id)"
+          >
             Adauga instructor
           </button>
         </span>

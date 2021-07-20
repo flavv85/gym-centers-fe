@@ -51,7 +51,7 @@ export class DisplayCustomerComponent implements OnInit {
   }
 
   deleteCustomer(id: number) {
-    if (confirm('Doriti sa stergeti?')) {
+    if (confirm('Doriti sa stergeti clientul?')) {
       this.customerService.deleteCustomer(id).subscribe(() => {
         window.location.reload();
       });
@@ -83,7 +83,7 @@ export class DisplayCustomerComponent implements OnInit {
   }
 
   deletePayment(id: number) {
-    if (confirm('Doriti sa stergeti?')) {
+    if (confirm('Doriti sa stergeti plata?')) {
       this.paymentService.deletePayment(id).subscribe(() => {
         window.location.reload();
       });
