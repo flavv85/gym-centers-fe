@@ -1,27 +1,32 @@
-# GymCentersFe
+Link prezentare PDF Gymcenters:
+https://www.dropbox.com/s/3t7aov0oimehhin/Gym-Centers-Prezentare.pdf?dl=0
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
+Despre aplicatie:
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Aplicatia
+GYM CENTERS este o plaforma care permite salilor de fitness sa
+isi inregistreze business ul, sa isi prezinte serviciile care pot consta in
+programe particularizate de antrenament, desfasurate in anumite zile si
+intervale orare cu instructori dedicati Clientii pot lua parte la mai multe
+programe cu unul sau mai multi trainer
+Platforma
+poate fi accesata fie de
+-
+ADMIN care poate adauga sali de fitness, programe de antrenament,
+instructor i intervale de training si cost pentru fiecare antrenament
+Instructorii pot fi comuni, accesati de mai multe sali de fitness
+-
+USER care poate vizualiza toate detaliile de prezentate mai sus, fara a
+putea face modificari
+Aplicatia
+este compusa din
+-
+Backend face referire la partea din program care nu poate fi accesata
+de utilizatorul final Majoritatea datelor si a logicii de business se
+regasesc si sunt accesate in aceasta parte a aplicatiei
+-
+Frontend reprezinta o intrefata grafica din utilizator si
+computer si controleaza toate aspectele vizuale ale aplicatiei
+si interactiunea cu utilizatorul. Este divizata in doua parti:
+cea accesibila tuturor vizitatorilor aplicatie si zona
+dedicata pentru partea de administrare.
